@@ -28,7 +28,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_21_005955) do
   end
 
   create_table "meals", force: :cascade do |t|
-    t.string "type"
+    t.string "mealType"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -38,8 +38,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_21_005955) do
     t.string "content"
     t.string "image_path"
     t.integer "user_id", null: false
+    t.integer "meal_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["meal_id"], name: "index_recipes_on_meal_id"
     t.index ["user_id"], name: "index_recipes_on_user_id"
   end
 
@@ -85,6 +87,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_21_005955) do
 
   add_foreign_key "ingredients_recipes", "ingredients"
   add_foreign_key "ingredients_recipes", "recipes"
+  add_foreign_key "recipes", "meals"
   add_foreign_key "recipes", "users"
   add_foreign_key "tokens", "users"
   add_foreign_key "user_roles", "roles"
