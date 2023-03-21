@@ -239,6 +239,8 @@ GEM
       sidekiq (>= 4, < 8)
       tilt (>= 1.4.0)
     spring (4.1.1)
+    sqlite3 (1.6.1-x86_64-darwin)
+    sqlite3 (1.6.1-x86_64-linux)
     thor (1.2.1)
     tilt (2.0.11)
     timeout (0.3.1)
@@ -283,6 +285,7 @@ DEPENDENCIES
   sidekiq
   sidekiq-scheduler
   spring
+  sqlite3 (~> 1.4)
   to_bool (~> 2.0)
   twilio-ruby
   tzinfo-data
