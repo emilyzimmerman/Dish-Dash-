@@ -29,6 +29,7 @@ Rails.application.routes.draw do
       end
 
       resources :recipes
+      resources :reviews
     end
   end
 end
