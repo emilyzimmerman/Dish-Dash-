@@ -7,5 +7,12 @@ module Reviews
 
             ServiceContract.error(review.errors.full_messages)
         end
+
+        def self.update_review(params, current_user)
+            review = Review.find(params[:id])
+            return ServiceContract.success(review) if review.update(comment: params[:comment], recipe_id: params[:recipe_id])
+
+            ServiceContract.error(review.errors.full_messages)
+        end
     end
 end
