@@ -27,6 +27,7 @@ class User < ApplicationRecord
   has_many :roles, through: :user_roles
   has_many :recipes
   has_many :reviews
+  has_many :ingredients
 
   validates :email, uniqueness: true
 
