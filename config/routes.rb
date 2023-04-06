@@ -28,6 +28,9 @@ Rails.application.routes.draw do
         post :create
       end
 
+      namespace :recipes do 
+        get :home
+      end
       resources :recipes
       resources :reviews
       resources :ingredients

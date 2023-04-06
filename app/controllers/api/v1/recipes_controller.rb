@@ -1,6 +1,8 @@
 module Api 
     module V1 
         class RecipesController < Api::V1::ApplicationController
+            skip_before_action :authenticate, only: %i[home]
+
             def create 
                 result = Recipes::Operations.new_recipe(params, @current_user)
                 render_error(errors: result.errors.all, status: 400) and return unless result.success?
@@ -47,6 +49,10 @@ module Api
 
                 recipe.destroy 
                 render_success(payload: "Recipe successfully destroyed", status: 200)
+            end
+
+            def home 
+                render_success(payload: {suggested: Recipe.order("RANDOM()").limit(5)})
             end
         end
     end
