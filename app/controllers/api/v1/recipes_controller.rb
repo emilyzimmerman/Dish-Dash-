@@ -1,7 +1,7 @@
 module Api 
     module V1 
         class RecipesController < Api::V1::ApplicationController
-            skip_before_action :authenticate, only: %i[home]
+            skip_before_action :authenticate, only: %i[home show]
 
             def create 
                 result = Recipes::Operations.new_recipe(params, @current_user)

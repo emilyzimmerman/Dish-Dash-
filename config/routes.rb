@@ -28,6 +28,8 @@ Rails.application.routes.draw do
         post :create
       end
 
+      get '/users/:username', to: "users#show", constraints: {username: /.*/}
+
       namespace :recipes do 
         get :home
       end
