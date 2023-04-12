@@ -3,7 +3,7 @@
 # Defines the JSON blueprint for the User model
 class UserBlueprint < Blueprinter::Base
   identifier :id
-  fields :first_name, :last_name, :name, :email, :username
+  fields :first_name, :last_name, :name, :email, :username, :recipes
 
   view :login do
     association :token, blueprint: TokenBlueprint do |user, _options|
