@@ -52,7 +52,7 @@ module Api
             end
 
             def home 
-                render_success(payload: {suggested: RecipeBlueprint.render_as_hash(Recipe.order("RANDOM()").limit(5)), meals: Meal.all})
+                render_success(payload: {suggested: RecipeBlueprint.render_as_hash(Recipe.order("RANDOM()")), meals: Meal.all})
             end
         end
     end
