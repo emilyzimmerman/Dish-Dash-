@@ -1,6 +1,8 @@
 module Api
     module V1
         class ReviewsController < Api::V1::ApplicationController
+            skip_before_action :authenticate, only: %i[index]
+
             def create
                 result = Reviews::Operations.new_review(params, @current_user)
                 render_error(errors: 'There was a problem creating a review', status: 400) and return unless result.success?
